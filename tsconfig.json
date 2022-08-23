@@ -1,0 +1,15 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@helpers": ["./helpers"],
+      "@api": ["./api"],
+    }
+  }
+}
