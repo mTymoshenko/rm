@@ -6,7 +6,21 @@ const { episodes, loading, error, totalRows, updateEpisodesList } = useEpisodesL
 <template>
   <div class="page-wrapper">
     <h2 style="text-align: center">List of Rick and Morty episodes</h2>
-    <el-alert v-if="error" :title="error.message" type="error" effect="dark" show-icon />
-    <GridEpisodes v-else :loading="loading" :episodes="episodes" :total-rows="totalRows" @update:page="updateEpisodesList" />
+    <ElAlert
+      v-if="error"
+      :title="error.message"
+      type="error"
+      effect="dark"
+      show-icon />
+    <ClientOnly v-else>
+      <GridEpisodes
+        :loading="loading"
+        :episodes="episodes"
+        :total-rows="totalRows"
+        @update:page="updateEpisodesList" />
+      <template #fallback>
+        <h3>Loading episodes...</h3>
+      </template>
+    </ClientOnly>
   </div>
 </template>

@@ -8,8 +8,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@helpers": ["./helpers"],
       "@api": ["./api"],
+      "@helpers": ["./helpers"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }

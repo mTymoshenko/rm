@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client/core";
 
-export const GET_CHARACTERS = gql`
+const GET_CHARACTERS = gql`
   query ($page: Int = 1) {
     characters(page: $page) {
       info {
@@ -19,6 +19,7 @@ export const GET_CHARACTERS = gql`
         gender
         created
         location {
+          id
           dimension
         }
       }
@@ -26,7 +27,7 @@ export const GET_CHARACTERS = gql`
   }
 `;
 
-export const GET_ONE_CHARACTER = gql`
+const GET_ONE_CHARACTER = gql`
   query ($id: ID = 1) {
     character(id: $id) {
       id
@@ -48,7 +49,7 @@ export const GET_ONE_CHARACTER = gql`
   }
 `;
 
-export const GET_EPISODES = gql`
+const GET_EPISODES = gql`
   query ($page: Int = 1) {
     episodes(page: $page) {
       info {
@@ -64,6 +65,7 @@ export const GET_EPISODES = gql`
         episode
         created
         characters {
+          id
           name
           status
         }
@@ -72,7 +74,7 @@ export const GET_EPISODES = gql`
   }
 `;
 
-export const GET_ONE_EPISODE = gql`
+const GET_ONE_EPISODE = gql`
   query ($id: ID = 1) {
     episode(id: $id) {
       id
@@ -90,6 +92,7 @@ export const GET_ONE_EPISODE = gql`
         gender
         created
         location {
+          id
           dimension
           name
           type
@@ -99,3 +102,5 @@ export const GET_ONE_EPISODE = gql`
     }
   }
 `;
+
+export { GET_CHARACTERS, GET_ONE_CHARACTER, GET_EPISODES, GET_ONE_EPISODE };

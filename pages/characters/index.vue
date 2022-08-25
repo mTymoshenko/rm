@@ -7,7 +7,21 @@ const { characters, loading, error, totalRows, updateCharactersList } = useChara
 <template>
   <div class="page-wrapper">
     <h2 style="text-align: center">The Rick and Morty characters as seen on the TV show</h2>
-    <el-alert v-if="error" :title="error.message" type="error" effect="dark" show-icon />
-    <GridCharacters v-else :loading="loading" :characters="characters" :total-rows="totalRows" @update:page="updateCharactersList" />
+    <ElAlert
+      v-if="error"
+      :title="error.message"
+      type="error"
+      effect="dark"
+      show-icon />
+    <ClientOnly v-else>
+      <GridCharacters
+        :loading="loading"
+        :characters="characters"
+        :total-rows="totalRows"
+        @update:page="updateCharactersList" />
+      <template #fallback>
+        <h3>Loading characters...</h3>
+      </template>
+    </ClientOnly>
   </div>
 </template>

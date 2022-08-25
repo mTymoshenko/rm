@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import apolloProvider from "@/apollo/apollo.provider";
+import apolloProvider from "./apollo";
 provide("apolloProvider", apolloProvider);
 </script>
 
@@ -12,6 +12,7 @@ provide("apolloProvider", apolloProvider);
 
 <style>
 body {
+  margin: 0;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 </style>

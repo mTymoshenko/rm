@@ -1,8 +1,5 @@
 import { fileURLToPath } from "node:url";
 import { defineNuxtConfig } from "nuxt";
-// import AutoImport from "unplugin-auto-import/vite";
-// import Components from "unplugin-vue-components/vite";
-// import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 const isProduction = process.env.NODE_ENV === "production";
 
