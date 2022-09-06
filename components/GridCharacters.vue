@@ -2,7 +2,7 @@
 import dayjs from "dayjs";
 import { getCharacterType } from "@helpers";
 import { ElTable, ElTableColumn, ElAvatar, ElPagination, ElLink, ElTag, vLoading } from "element-plus";
-import { Character } from "types/character";
+import { Character } from "types/entity/entity.character";
 
 const props = defineProps<{
   page: number;
@@ -24,8 +24,7 @@ const updatePage = (page: number) => emit("update:page", page);
   <ElTable
     v-loading="loading"
     :data="characters"
-    style="width: 100%"
-    height="65vh"
+    style="width: 100%; flex-grow: 1; margin-bottom: 15px; height: 100px"
     stripe
     border>
     <ElTableColumn
@@ -105,7 +104,7 @@ const updatePage = (page: number) => emit("update:page", page);
   <ElPagination
     v-if="characters.length"
     v-model:currentPage="currentPage"
-    style="margin-top: 15px; justify-content: center"
+    style="margin-top: auto; justify-content: center; flex-shrink: 0"
     :page-size="20"
     :background="true"
     layout="total, prev, pager, next, jumper"
